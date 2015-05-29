@@ -32,8 +32,12 @@ class MultiselectField extends CheckboxesField {
     $multiselect->append('<span class="placeholder">&nbsp;</span>');
     $options = $this->options();
     foreach($this->value() as $value) {
-      if(!empty($value) and isset($options[$value])) {
-        $tag = '<span class="item" title='.$value.'>'.$options[$value].'</span>';
+      if(!empty($value)) {
+        if(isset($options[$value])) {
+          $tag = '<span class="item" title='.$value.'>'.$options[$value].'</span>';
+        } else {
+          $tag = '<span class="item" title='.$value.'>'.$value.'</span>';
+        }
         $multiselect->append($tag);
       }
     }
