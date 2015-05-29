@@ -5,6 +5,20 @@
 .input-with-multiselectbox .input-is-focused {
   border-bottom-color: #ddd;
 }
+.input-with-multiselectbox .input-is-focused::before,
+.input-with-multiselectbox .input-is-focused::after {
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  width: 2px;
+  border-bottom: 2px solid #8dae28;
+}
+.input-with-multiselectbox .input-is-focused::before {
+  left: 0;
+}
+.input-with-multiselectbox .input-is-focused::after {
+  right: 0;
+}
 
 .input-with-multiselectbox .item {
   background: none;
@@ -37,7 +51,6 @@
   margin: 0;
   border-bottom: 1px dashed #ddd;
 }
-
 .input-with-multiselectbox .input-list-item:last-child {
   border-bottom: none;
 }
@@ -61,5 +74,9 @@
 
 /* error */
 .field-with-error .input-with-multiselectbox .input-list {
+  border-color: #b3000a;
+}
+.field-with-error .input-with-multiselectbox .input-is-focused::before,
+.field-with-error .input-with-multiselectbox .input-is-focused::after {
   border-color: #b3000a;
 }
