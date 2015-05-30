@@ -28,19 +28,7 @@ class MultiselectField extends CheckboxesField {
       'readonly' => ($this->readonly or $this->disabled) ? 1 : 0
     ));
 
-    // prepopulate with values
     $multiselect->append('<span class="placeholder">&nbsp;</span>');
-    $options = $this->options();
-    foreach($this->value() as $value) {
-      if(!empty($value)) {
-        if(isset($options[$value])) {
-          $tag = '<span class="item" title='.$value.'>'.$options[$value].'</span>';
-        } else {
-          $tag = '<span class="item" title='.$value.'>'.$value.'</span>';
-        }
-        $multiselect->append($tag);
-      }
-    }
 
     $content = new Brick('div');
     $content->addClass('field-content input-with-multiselectbox');
