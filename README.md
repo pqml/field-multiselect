@@ -5,6 +5,9 @@
 
 The Multiselect field plugin introduces a select field type for the panel that allows you to choose multiple entries.
 
+The plugin is free, but I'd appreciate if you'd support me with a [moral license](https://gumroad.com/l/kirby-multiselect)!
+
+
 # Installation & Update
 Copy the files to `site/fields/multiselect/`.
 
