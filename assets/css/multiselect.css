@@ -10,11 +10,8 @@
 .input-with-multiselectbox .item {
   background: none;
 }
-.input-with-multiselectbox .item::after {
+.input-with-multiselectbox .item:not(:last-of-type):after {
   content: ", ";
-}
-.input-with-multiselectbox .item:last-of-type::after {
-  content: "";
 }
 
 .input-with-multiselectbox .input-list {
@@ -32,21 +29,46 @@
   border-width: 0 2px 2px 2px;
 
   padding: .25em 0;
+
 }
 
 .input-with-multiselectbox .input-list-item {
   margin: 0;
-  border-bottom: 1px dashed #ddd;
 }
-.input-with-multiselectbox .input-list-item:last-child {
-  border-bottom: none;
+
+.input-with-multiselectbox .input-list-item:not(:last-child) {
+  border-bottom: 1px dashed #ddd;
 }
 
 .input-with-multiselectbox .input-list .input {
   border: none;
   font-size: .9em;
   padding: .2em .5em;
+  cursor: pointer;
+
 }
+
+/* Checkboxes */
+.input-with-multiselectbox .checkbox {
+  display: none;
+}
+
+.input-with-multiselectbox .checkbox + span:before {
+  content: "X";
+  margin-right: 7px;
+
+  border: 1px solid #ddd;
+  padding: 0 3px;
+  font-size: 9px;
+  color: #fff;
+  vertical-align: 4%;
+}
+
+.input-with-multiselectbox .checkbox:checked + span:before {
+  color: #8dae28;
+  border-color: #8dae28;
+}
+
 
 /* readonly or disabled */
 .field-is-readonly .input-with-multiselectbox .input-display,
@@ -60,9 +82,7 @@
 }
 
 /* error */
-.field-with-error .input-with-multiselectbox .input-list {
-  border-color: #b3000a;
-}
+.field-with-error .input-with-multiselectbox .input-list,
 .field-with-error .input-with-multiselectbox .input-is-focused::before,
 .field-with-error .input-with-multiselectbox .input-is-focused::after {
   border-color: #b3000a;

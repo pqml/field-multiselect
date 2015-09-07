@@ -24,6 +24,27 @@ class MultiselectField extends CheckboxesField {
     return str_replace('required','', $input);
   }
 
+  public function item($value, $text) {
+    $input = $this->input($value);
+
+    $label = new Brick('label');
+    $label->addClass('input');
+    $label->attr('data-focus', 'true');
+
+    $text = new Brick('span', $this->i18n($text));
+    $label->prepend($text);
+
+    $label->prepend($input);
+
+
+    if($this->readonly) {
+      $label->addClass('input-is-readonly');
+    }
+
+    return $label;
+
+  }
+
   public function content() {
 
     $multiselect = new Brick('div');
