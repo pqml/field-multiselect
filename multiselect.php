@@ -2,6 +2,7 @@
 
 class MultiselectField extends CheckboxesField {
 
+  public $search = true;
   public $yaml   = false;
   public $reload = false;
 
@@ -53,6 +54,7 @@ class MultiselectField extends CheckboxesField {
     if($this->readonly()) $multiselect->addClass('input-is-readonly');
     $multiselect->data(array(
       'field'    => 'multiselect',
+      'search'   => $this->search ? 1 : 0,
       'readonly' => ($this->readonly or $this->disabled) ? 1 : 0,
       'reload'   => $this->reload ? 1 : 0
     ));
@@ -63,14 +65,20 @@ class MultiselectField extends CheckboxesField {
     $content->addClass('field-content input-with-multiselectbox');
     $content->append($multiselect);
 
+
     // list with options
-    $html = '<ul class="input-list">';
+    $html  = '<div class="input-list">';
+    if ($this->search) {
+      $html .= '<input class="multiselectbox-search" placeholder="Type to filter options">';
+    }
+    $html .= '<ul>';
     foreach($this->options() as $key => $value) {
       $html .= '<li class="input-list-item">';
       $html .= $this->item($key, $value);
       $html .= '</li>';
     }
     $html .= '</ul>';
+    $html .= '</div>';
 
     $content->append($html);
 
