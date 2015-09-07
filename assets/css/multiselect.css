@@ -62,14 +62,15 @@
 }
 
 .input-with-multiselectbox .checkbox + span:before {
-  content: "X";
+  content: "\f00c";
+  font-family: "FontAwesome";
   margin-right: 7px;
 
   border: 1px solid #ddd;
-  padding: 0 3px;
+  padding: 3px;
   font-size: 9px;
   color: #fff;
-  vertical-align: 4%;
+  vertical-align: 2%;
 }
 
 .input-with-multiselectbox .checkbox:checked + span:before {
