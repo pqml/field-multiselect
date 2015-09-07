@@ -123,7 +123,6 @@
         if(e.keyCoce == 27 || e.which == 27) {
           self.search.val("");
           self.list.find('ul').children().css({'display':'block'});
-          self.hide();
         }
       });
 
