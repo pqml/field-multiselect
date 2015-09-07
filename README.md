@@ -39,7 +39,7 @@ bestband:
 
 Result: 
 
-![multiselect](https://distantnative.com/remote/github/multiselect.gif)
+![multiselect](http://distantnative.com/remote/github/multiselect.gif)
 
 It can also be used with the usual field options (pages etc.) of the checkboxes field.
 
