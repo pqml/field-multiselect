@@ -43,17 +43,16 @@ class MultiselectField extends CheckboxesField {
     $content->append($multiselect);
 
     // list with options
-    if(!$this->readonly and !$this->disabled) {
-      $html = '<ul class="input-list">';
-      foreach($this->options() as $key => $value) {
-        $html .= '<li class="input-list-item">';
-        $html .= $this->item($key, $value);
-        $html .= '</li>';
-      }
-      $html .= '</ul>';
-
-      $content->append($html);
+    $html = '<ul class="input-list">';
+    foreach($this->options() as $key => $value) {
+      $html .= '<li class="input-list-item">';
+      $html .= $this->item($key, $value);
+      $html .= '</li>';
     }
+    $html .= '</ul>';
+
+    $content->append($html);
+
 
     $content->append($this->icon());
 
