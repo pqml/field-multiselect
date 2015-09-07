@@ -21,6 +21,8 @@ bestband:
   label: Best Band Ever
   type: multiselect
   required: true
+  search: true
+  readonly: false
   options:
     1d : 1Direction
     bb: BBoys
@@ -31,10 +33,16 @@ bestband:
     mi: Miley
     bi: Bieber
     u2: U2
+  yaml: false
+  reload: false
 ```
 
 Result: 
 
-![multiselect](https://cloud.githubusercontent.com/assets/3788865/7901802/8761ab8c-079b-11e5-98f2-a59f8a1d2e1c.gif)
+![multiselect](https://distantnative.com/remote/github/multiselect.gif)
 
 It can also be used with the usual field options (pages etc.) of the checkboxes field.
+
+# Version history <a id="VersionHistory"></a>
+Check out the more or less complete [changelog](https://github.com/distantnative/multiselect/blob/master/CHANGELOG.md).
+

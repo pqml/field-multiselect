@@ -2,6 +2,7 @@
 
 class MultiselectField extends CheckboxesField {
 
+  public $search = true;
   public $yaml   = false;
   public $reload = false;
 
@@ -18,6 +19,33 @@ class MultiselectField extends CheckboxesField {
     $this->icon    = 'chevron-down';
   }
 
+  public function input() {
+    $value = func_get_arg(0);
+    $input = parent::input($value);
+    return str_replace('required','', $input);
+  }
+
+  public function item($value, $text) {
+    $input = $this->input($value);
+
+    $label = new Brick('label');
+    $label->addClass('input');
+    $label->attr('data-focus', 'true');
+
+    $text = new Brick('span', $this->i18n($text));
+    $label->prepend($text);
+
+    $label->prepend($input);
+
+
+    if($this->readonly) {
+      $label->addClass('input-is-readonly');
+    }
+
+    return $label;
+
+  }
+
   public function content() {
 
     $multiselect = new Brick('div');
@@ -26,6 +54,7 @@ class MultiselectField extends CheckboxesField {
     if($this->readonly()) $multiselect->addClass('input-is-readonly');
     $multiselect->data(array(
       'field'    => 'multiselect',
+      'search'   => $this->search ? 1 : 0,
       'readonly' => ($this->readonly or $this->disabled) ? 1 : 0,
       'reload'   => $this->reload ? 1 : 0
     ));
@@ -36,18 +65,23 @@ class MultiselectField extends CheckboxesField {
     $content->addClass('field-content input-with-multiselectbox');
     $content->append($multiselect);
 
-    // list with options
-    if(!$this->readonly and !$this->disabled) {
-      $html = '<ul class="input-list">';
-      foreach($this->options() as $key => $value) {
-        $html .= '<li class="input-list-item">';
-        $html .= $this->item($key, $value);
-        $html .= '</li>';
-      }
-      $html .= '</ul>';
 
-      $content->append($html);
+    // list with options
+    $html  = '<div class="input-list">';
+    if ($this->search) {
+      $html .= '<input class="multiselectbox-search" placeholder="Type to filter options">';
     }
+    $html .= '<ul>';
+    foreach($this->options() as $key => $value) {
+      $html .= '<li class="input-list-item">';
+      $html .= $this->item($key, $value);
+      $html .= '</li>';
+    }
+    $html .= '</ul>';
+    $html .= '</div>';
+
+    $content->append($html);
+
 
     $content->append($this->icon());
 

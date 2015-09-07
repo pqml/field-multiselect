@@ -10,6 +10,8 @@
     this.field       = self.multiselect.parent().parent();
     this.list        = self.multiselect.next();
     this.checkboxes  = self.list.find('input[type="checkbox"]');
+    this.search      = self.list.find('.multiselectbox-search');
+    this.canSearch   = self.multiselect.data('search');
     this.space       = self.multiselect.find('.placeholder');
     this.label       = self.field.find('.label');
     this.elements    = [];
@@ -79,6 +81,7 @@
       self.multiselect.add(self.label).on('click', function () {
         self.list.toggle();
         self.multiselect.toggleClass('input-is-focused');
+        self.search.focus();
         self.modalize();
         self.triggerReload();
       });
@@ -95,6 +98,37 @@
         }
       });
     };
+
+    this.initSearch = function() {
+      self.search.on('input', function() {
+        var search   = $(this).val();
+        var list     = self.list.find('ul');
+        var elements = list.children();
+        var regex    = new RegExp("(" + search + ")", "ig");
+
+        elements
+        .css({'display':'block'})
+        .each(function() {
+            var text = $(this).find('span');
+            var bold  = text.text().replace(regex, "<b>$1</b>");
+            text.html(bold);
+          })
+          .filter(function(index) {
+            return ($(this).find('span').text().match(regex) == null);
+          })
+          .css({'display':'none'});
+      });
+
+      self.search.on('keydown', function(e) {
+        if(e.keyCoce == 27 || e.which == 27) {
+          self.search.val("");
+          self.list.find('ul').children().css({'display':'block'});
+          self.hide();
+        }
+      });
+
+
+    }
 
     this.hide = function() {
       self.list.hide();
@@ -137,6 +171,11 @@
         self.initSelect();
         self.onChecking();
       }
+
+      if(self.canSearch == 1) {
+        self.initSearch();
+      }
+
     };
 
     // start the plugin
