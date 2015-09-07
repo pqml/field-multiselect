@@ -18,6 +18,12 @@ class MultiselectField extends CheckboxesField {
     $this->icon    = 'chevron-down';
   }
 
+  public function input() {
+    $value = func_get_arg(0);
+    $input = parent::input($value);
+    return str_replace('required','', $input);
+  }
+
   public function content() {
 
     $multiselect = new Brick('div');
