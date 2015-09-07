@@ -119,10 +119,14 @@
           .css({'display':'none'});
       });
 
-      self.search.on('keydown', function(e) {
+      self.field.on('keydown', function(e) {
         if(e.keyCoce == 27 || e.which == 27) {
           self.search.val("");
-          self.list.find('ul').children().css({'display':'block'});
+          self.list.find('ul').children()
+          .css({'display':'block'})
+          .each(function () {
+            $(this).find('span').html($(this).find('span').text());
+          });
         }
       });
 
