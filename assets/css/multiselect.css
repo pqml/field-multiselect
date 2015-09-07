@@ -96,6 +96,10 @@
   border-bottom: 1px dashed #ddd;
 }
 
+.input-with-multiselectbox .input-list b {
+  color: #8dae28;
+}
+
 
 /* readonly or disabled */
 .field-is-readonly .input-with-multiselectbox .input-display,
