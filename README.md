@@ -22,7 +22,6 @@ bestband:
   type: multiselect
   required: true
   search: true
-  readonly: false
   options:
     1d : 1Direction
     bb: BBoys
@@ -33,8 +32,6 @@ bestband:
     mi: Miley
     bi: Bieber
     u2: U2
-  yaml: false
-  reload: false
 ```
 
 Result: 

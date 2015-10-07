@@ -13,6 +13,7 @@ bestband:
   label: Best Band Ever
   type: multiselect
   required: true
+  search: true
   options:
     1d : 1Direction
     bb: BBoys
