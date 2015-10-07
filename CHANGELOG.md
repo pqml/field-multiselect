@@ -1,6 +1,7 @@
 # Changelog
 
 ## Version 1.2
+- Nicer checkbox ticking and search highlighting
 - Removed unnecessary yaml and reload option
 
 ## Version 1.1
