@@ -16,7 +16,6 @@
     this.label       = self.field.find('.label');
     this.elements    = [];
     this.readonly    = self.multiselect.data('readonly');
-    this.reload      = self.multiselect.data('reload');
     this.modal       = self.field.parents('.modal-content');
 
     // add element
@@ -70,12 +69,6 @@
       });
     };
 
-    this.triggerReload = function() {
-      if(self.reload == 1 && !self.multiselect.hasClass('input-is-focused')) {
-        self.field.parents('.form').submit();
-      }
-    };
-
     // bindings for select list
     this.initSelect = function() {
       self.multiselect.add(self.label).on('click', function () {
@@ -83,7 +76,6 @@
         self.multiselect.toggleClass('input-is-focused');
         self.search.focus();
         self.modalize();
-        self.triggerReload();
       });
 
       var container = self.modal.length > 0 ? $('.modal-content') : $(document);
@@ -137,7 +129,6 @@
       self.list.hide();
       self.multiselect.removeClass('input-is-focused');
       self.modalize('remove');
-      self.triggerReload();
     };
 
     // bindings for checkboxes

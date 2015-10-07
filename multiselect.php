@@ -3,8 +3,6 @@
 class MultiselectField extends CheckboxesField {
 
   public $search = true;
-  public $yaml   = false;
-  public $reload = false;
 
   static public $assets = array(
     'css' => array(
@@ -56,7 +54,6 @@ class MultiselectField extends CheckboxesField {
       'field'    => 'multiselect',
       'search'   => $this->search ? 1 : 0,
       'readonly' => ($this->readonly or $this->disabled) ? 1 : 0,
-      'reload'   => $this->reload ? 1 : 0
     ));
 
     $multiselect->append('<div class="placeholder">&nbsp;</div>');
@@ -97,10 +94,6 @@ class MultiselectField extends CheckboxesField {
 
   public function result() {
     $result = parent::result();
-    if($this->yaml and !is_array($result)) {
-      $result = array_filter(explode(', ', $result));
-    }
-
     return empty($result) ? null : $result;
   }
 
