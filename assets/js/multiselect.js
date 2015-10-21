@@ -1,6 +1,5 @@
 (function($) {
 
-
   var Multiselect = function(element) {
 
     var self = this;
@@ -21,16 +20,19 @@
     // add element
     this.add = function(item) {
       var element  = {
-                      order: item.parent().parent().index(),
-                      name: item.val(),
-                      value: item.parent().text()
-                     };
+        order:  item.parent().parent().index(),
+        name:   item.val(),
+        value:  item.parent().text()
+       };
       self.elements.push(element);
 
       var position = self.sort(element);
       var html     = '<span class="item" title="' + element.name + '">' + element.value + '</span>';
-      if(position > 0) self.multiselect.find('.item').eq(position - 1).after(html);
-      else self.multiselect.prepend(html);
+      if(position > 0) {
+        self.multiselect.find('.item').eq(position - 1).after(html);
+      } else {
+        self.multiselect.prepend(html);
+      }
     };
 
     // remove element
@@ -58,8 +60,11 @@
 
     // shows/hides placeholder
     this.placeholder = function () {
-      if(self.elements.length > 0) self.space.hide();
-      else self.space.show();
+      if(self.elements.length > 0) {
+        self.space.hide();
+      } else {
+        self.space.show();
+      }
     };
 
     // prepopulate with elements
