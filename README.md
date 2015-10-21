@@ -41,5 +41,5 @@ Result:
 It can also be used with the usual field options (pages etc.) of the checkboxes field.
 
 # Version history <a id="VersionHistory"></a>
-Check out the more or less complete [changelog](https://github.com/distantnative/multiselect/blob/master/CHANGELOG.md).
+Check out the more or less complete [changelog](CHANGELOG.md).
 
