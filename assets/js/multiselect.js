@@ -42,7 +42,7 @@
         return v.name != key;
       });
       self.multiselect.find('span[title="' + key + '"]').remove();
-    }
+    };
 
     // sort elements, returns order of element if provided
     this.sort = function(element) {
@@ -128,7 +128,7 @@
       });
 
 
-    }
+    };
 
     this.hide = function() {
       self.list.hide();
