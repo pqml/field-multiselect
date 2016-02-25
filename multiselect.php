@@ -24,7 +24,6 @@ class MultiselectField extends CheckboxesField {
   }
 
   public function item($value, $text) {
-    $input = $this->input($value);
 
     $label = new Brick('label');
     $label->addClass('input');
@@ -33,6 +32,7 @@ class MultiselectField extends CheckboxesField {
     $text = new Brick('span', $this->i18n($text));
     $label->prepend($text);
 
+    $input = $this->input($value);
     $label->prepend($input);
 
 
@@ -49,11 +49,18 @@ class MultiselectField extends CheckboxesField {
     $multiselect = new Brick('div');
     $multiselect->addClass('input input-display');
 
-    if($this->readonly()) $multiselect->addClass('input-is-readonly');
+    if($this->readonly()) {
+      $multiselect->addClass('input-is-readonly');
+    }
+
+    $multiselect->attr(array(
+      'tabindex' => 0
+    ));
+
     $multiselect->data(array(
       'field'    => 'multiselect',
       'search'   => $this->search ? 1 : 0,
-      'readonly' => ($this->readonly or $this->disabled) ? 1 : 0,
+      'readonly' => ($this->readonly or $this->disabled) ? 1 : 0
     ));
 
     $multiselect->append('<div class="placeholder">&nbsp;</div>');
@@ -61,40 +68,34 @@ class MultiselectField extends CheckboxesField {
     $content = new Brick('div');
     $content->addClass('field-content input-with-multiselectbox');
     $content->append($multiselect);
-
-
-    // list with options
-    $html  = '<div class="input-list">';
-    if ($this->search) {
-      $html .= '<input class="multiselectbox-search" placeholder="Type to filter options">';
-    }
-    $html .= '<ul>';
-    foreach($this->options() as $key => $value) {
-      $html .= '<li class="input-list-item">';
-      $html .= $this->item($key, $value);
-      $html .= '</li>';
-    }
-    $html .= '</ul>';
-    $html .= '</div>';
-
-    $content->append($html);
-
-
+    $content->append($this->optionlist());
     $content->append($this->icon());
 
     return $content;
 
   }
 
+  public function optionlist() {
+    $list  = '<div class="input-list">';
+
+    if ($this->search) {
+      $list .= '<input class="multiselectbox-search" placeholder="Type to filter options">';
+    }
+
+    $list .= '<ul>';
+    foreach($this->options() as $key => $value) {
+      $list .= '<li class="input-list-item">' . $this->item($key, $value) . '</li>';
+    }
+    $list .= '</ul></div>';
+
+    return $list;
+  }
+
+
   public function label() {
     $label = parent::label();
     $label->attr('for', '');
     return $label;
-  }
-
-  public function result() {
-    $result = parent::result();
-    return empty($result) ? null : $result;
   }
 
 }
