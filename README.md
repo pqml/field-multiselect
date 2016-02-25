@@ -34,12 +34,11 @@ bestband:
     u2: U2
 ```
 
-Result: 
+Result:
 
-![multiselect](http://distantnative.com/remote/github/multiselect.gif)
+![multiselect](assets/images/multiselect.gif)  
 
 It can also be used with the usual field options (pages etc.) of the checkboxes field.
 
 # Version history <a id="VersionHistory"></a>
 Check out the more or less complete [changelog](CHANGELOG.md).
-
