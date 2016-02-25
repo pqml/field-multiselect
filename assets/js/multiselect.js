@@ -53,7 +53,7 @@
       if(element !== undefined) {
         var index = $.map(self.elements, function(e, i) {
           if(e.name == element.name) return i;
-        })
+        });
         return index[0];
       }
     };
@@ -111,7 +111,7 @@
             text.html(bold);
           })
           .filter(function(index) {
-            return ($(this).find('span').text().match(regex) == null);
+            return ($(this).find('span').text().match(regex) === null);
           })
           .css({'display':'none'});
       });

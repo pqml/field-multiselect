@@ -53,10 +53,14 @@ class MultiselectField extends CheckboxesField {
       $multiselect->addClass('input-is-readonly');
     }
 
+    $multiselect->attr(array(
+      'tabindex' => 0
+    ));
+
     $multiselect->data(array(
       'field'    => 'multiselect',
       'search'   => $this->search ? 1 : 0,
-      'readonly' => ($this->readonly or $this->disabled) ? 1 : 0,
+      'readonly' => ($this->readonly or $this->disabled) ? 1 : 0
     ));
 
     $multiselect->append('<div class="placeholder">&nbsp;</div>');
