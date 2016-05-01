@@ -4,9 +4,9 @@ $white-dirty: #efefef;
 $grey:        #ddd;
 $green:       #8dae28;
 
-.input-with-multiselectbox {
+.input-with-multiselect {
 
-  .input-display {
+  .display {
     cursor: pointer;
   }
 
@@ -22,7 +22,7 @@ $green:       #8dae28;
     }
   }
 
-  .input-list {
+  .list {
     display:          none;
     position:         absolute;
     top:              100%;
@@ -43,7 +43,7 @@ $green:       #8dae28;
     }
   }
 
-  .input-list-item {
+  .list-item {
     margin: 0;
 
     &:first-of-type {
@@ -57,6 +57,12 @@ $green:       #8dae28;
     &:not(:last-child) {
       border-bottom: 1px dashed $grey;
     }
+
+    > .input {
+      min-height:     0;
+      padding-top:    .4em;
+      padding-bottom: .4em;
+    }
   }
 
 
@@ -65,12 +71,12 @@ $green:       #8dae28;
     display: none;
 
     + span:before {
-      margin-right:   7px;
-      padding:        3px;
+      margin-right:   10px;
+      padding:        1px;
       border:         1px solid $grey;
       color:          $white;
       font-family:    'FontAwesome';
-      font-size:      9px;
+      font-size:      11px;
       content:        '\f00c';
       vertical-align: 2%;
     }
@@ -82,14 +88,13 @@ $green:       #8dae28;
   }
 
   // Search
-  .multiselectbox-search {
-    top:              -10px;
+  .search-bar {
     width:            100%;
-    padding:          .4em 1.7em .5em;
+    padding:          .4em 2.2em .5em;
     border:           none;
-    font-size:        .9em;
-    background-color: $white-dirty;
     border-bottom:    1px dashed $grey;
+    background-color: $white-dirty;
+    font-size:        .9em;
 
     &:focus {
       border:        none;
@@ -99,7 +104,7 @@ $green:       #8dae28;
   }
 
   // Search results
-  .input-list b {
+  .list b {
     color: $green;
   }
 
@@ -107,7 +112,7 @@ $green:       #8dae28;
   // readonly or disabled
   .field-is-readonly & ,
   .field-is-disabled & {
-    .input-display {
+    .display {
       cursor: default;
     }
 

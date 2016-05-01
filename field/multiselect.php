@@ -4,23 +4,23 @@ class MultiselectField extends CheckboxesField {
 
   public $search = true;
 
-  static public $assets = array(
-    'css' => array(
+  public static $assets = [
+    'css' => [
       'style.css'
-     ),
-    'js' => array(
-      'multiselect.js'
-    )
-  );
+    ],
+    'js' => [
+      'script.js'
+    ]
+  ];
 
   public function __construct() {
-    $this->icon    = 'chevron-down';
+    $this->icon = 'chevron-down';
   }
 
   public function input() {
     $value = func_get_arg(0);
     $input = parent::input($value);
-    return str_replace('required','', $input);
+    return str_replace('required', '', $input);
   }
 
   public function item($value, $text) {
@@ -35,7 +35,6 @@ class MultiselectField extends CheckboxesField {
     $input = $this->input($value);
     $label->prepend($input);
 
-
     if($this->readonly) {
       $label->addClass('input-is-readonly');
     }
@@ -46,49 +45,53 @@ class MultiselectField extends CheckboxesField {
 
   public function content() {
 
-    $multiselect = new Brick('div');
-    $multiselect->addClass('input input-display');
+    $display = new Brick('div');
+    $display->addClass('input display');
 
     if($this->readonly()) {
-      $multiselect->addClass('input-is-readonly');
+      $display->addClass('input-is-readonly');
     }
 
-    $multiselect->attr(array(
+    $display->attr(array(
       'tabindex' => 0
     ));
 
-    $multiselect->data(array(
+    $display->data(array(
       'field'    => 'multiselect',
       'search'   => $this->search ? 1 : 0,
       'readonly' => ($this->readonly or $this->disabled) ? 1 : 0
     ));
 
-    $multiselect->append('<div class="placeholder">&nbsp;</div>');
+    $display->append('<div class="placeholder">&nbsp;</div>');
 
-    $content = new Brick('div');
-    $content->addClass('field-content input-with-multiselectbox');
-    $content->append($multiselect);
-    $content->append($this->optionlist());
-    $content->append($this->icon());
+    $wrapper = new Brick('div');
+    $wrapper->addClass('field-content input-with-multiselect');
+    $wrapper->append($display);
+    $wrapper->append($this->dropdown());
+    $wrapper->append($this->icon());
 
-    return $content;
+    return $wrapper;
 
   }
 
-  public function optionlist() {
-    $list  = '<div class="input-list">';
+  public function dropdown() {
+    $dropdown = new Brick('div');
+    $dropdown->addClass('list');
 
-    if ($this->search) {
-      $list .= '<input class="multiselectbox-search" placeholder="Type to filter options">';
-    }
-
-    $list .= '<ul>';
+    $list = new Brick('ul');
+    $item = new Brick('li');
+    $item->addClass('list-item');
     foreach($this->options() as $key => $value) {
-      $list .= '<li class="input-list-item">' . $this->item($key, $value) . '</li>';
+      $item->html($this->item($key, $value));
+      $list->append($item);
     }
-    $list .= '</ul></div>';
+    $dropdown->append($list);
 
-    return $list;
+    if($this->search) {
+      $dropdown->prepend('<input class="search-bar" placeholder="Type to filter options">');
+    }
+
+    return $dropdown;
   }
 
 
