@@ -3,8 +3,10 @@
 ## 2.0.0 (2016-05-01)
 - Requires Kirby 2.3.0
 - Renamed to `field-multiselect` (required renaming repository)
+- Full keyboard support added (up & down arrows)
 - Rewritten as plugin that registers the multiselect field
 - Restructured CSS as SCSS (using gulp)
+- JS improvements (and uglified via gulp)
 - Updated package.json (supports the Kirby CLI)
 
 ## 1.4.0
