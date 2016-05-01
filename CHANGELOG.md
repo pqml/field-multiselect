@@ -1,16 +1,21 @@
 # Changelog
 
-## Version 1.4
+## 2.0.0
+- Requires Kirby 2.3.0
+- Renamed to `field-multiselect` (required renaming repository)
+- Rewritten as plugin that registers the multiselect field
+
+## 1.4.0
 - Fixed saving cleared multiselect field
 - General fixes
 
-## Version 1.3
+## 1.3.0
 - Ready for Kirby 2.2
 
-## Version 1.2
+## 1.2.0
 - Nicer checkbox ticking and search highlighting
 - Removed unnecessary yaml and reload option
 
-## Version 1.1
+## 1.1.0
 - Search for options added!
 - Smaller bugs fixed (e.g. required on Firefox, readonly display)
