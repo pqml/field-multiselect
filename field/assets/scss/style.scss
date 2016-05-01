@@ -2,7 +2,9 @@
 $white:       #fff;
 $white-dirty: #efefef;
 $grey:        #ddd;
+$grey-light:  #eee;
 $green:       #8dae28;
+$focussed:    rgba($green, .1);
 
 .input-with-multiselect {
 
@@ -63,6 +65,19 @@ $green:       #8dae28;
       padding-top:    .4em;
       padding-bottom: .4em;
     }
+
+    &--focused {
+      background-color: $focussed;
+
+      > .input {
+        background-color: $focussed;
+      }
+
+      .checkbox + span:before {
+        border-color: $green;
+        color:        transparent;
+      }
+    }
   }
 
 
@@ -74,7 +89,7 @@ $green:       #8dae28;
       margin-right:   10px;
       padding:        1px;
       border:         1px solid $grey;
-      color:          $white;
+      color:          transparent;
       font-family:    'FontAwesome';
       font-size:      11px;
       content:        '\f00c';
@@ -83,7 +98,7 @@ $green:       #8dae28;
 
     &:checked + span:before {
       border-color: $green;
-      color:        $green;
+      color:        $green !important;
     }
   }
 
