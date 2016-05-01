@@ -6,7 +6,7 @@ class MultiselectField extends CheckboxesField {
 
   static public $assets = array(
     'css' => array(
-      'multiselect.css'
+      'style.css'
      ),
     'js' => array(
       'multiselect.js'

@@ -1,0 +1,125 @@
+
+$white:       #fff;
+$white-dirty: #efefef;
+$grey:        #ddd;
+$green:       #8dae28;
+
+.input-with-multiselectbox {
+
+  .input-display {
+    cursor: pointer;
+  }
+
+  .input-is-focused {
+    border-bottom-color: $grey;
+  }
+
+  .item {
+    background: none;
+
+    &:not(:last-of-type):after {
+      content: ', ';
+    }
+  }
+
+  .input-list {
+    display:          none;
+    position:         absolute;
+    top:              100%;
+    right:            0;
+    left:             0;
+    max-height:       185px;
+    border:           solid $green;
+    border-width:     0 2px 2px;
+    background-color: $white;
+    overflow:         auto;
+    z-index:          10;
+
+    .input {
+      padding:   .2em .5em;
+      border:    none;
+      font-size: .9em;
+      cursor:    pointer;
+    }
+  }
+
+  .input-list-item {
+    margin: 0;
+
+    &:first-of-type {
+      padding-top: .2em;
+    }
+
+    &:last-of-type {
+      padding-bottom: .2em;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px dashed $grey;
+    }
+  }
+
+
+  // Checkboxes
+  .checkbox {
+    display: none;
+
+    + span:before {
+      margin-right:   7px;
+      padding:        3px;
+      border:         1px solid $grey;
+      color:          $white;
+      font-family:    'FontAwesome';
+      font-size:      9px;
+      content:        '\f00c';
+      vertical-align: 2%;
+    }
+
+    &:checked + span:before {
+      border-color: $green;
+      color:        $green;
+    }
+  }
+
+  // Search
+  .multiselectbox-search {
+    top:              -10px;
+    width:            100%;
+    padding:          .4em 1.7em .5em;
+    border:           none;
+    font-size:        .9em;
+    background-color: $white-dirty;
+    border-bottom:    1px dashed $grey;
+
+    &:focus {
+      border:        none;
+      border-bottom: 1px dashed $grey;
+      outline:       none;
+    }
+  }
+
+  // Search results
+  .input-list b {
+    color: $green;
+  }
+
+
+  // readonly or disabled
+  .field-is-readonly & ,
+  .field-is-disabled & {
+    .input-display {
+      cursor: default;
+    }
+
+    .field-icon {
+      display: block !important;
+    }
+  }
+}
+
+// structure field fix
+.modal-content {
+  &.overflowing {
+    overflow: visible !important;
+  }
+}

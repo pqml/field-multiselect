@@ -1,15 +1,20 @@
-![Multiselect Field for Kirby CMS](http://distantnative.com/remote/github/kirby-multiselect-github.png)  
+![Multiselect Field for Kirby CMS](docs/assets/logo.png)  
 
-[![Release](https://img.shields.io/github/release/distantnative/multiselect.svg)](https://github.com/distantnative/multiselect/releases)  [![Issues](https://img.shields.io/github/issues/distantnative/multiselect.svg)](https://github.com/distantnative/multiselect/issues) [![License](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://raw.githubusercontent.com/distantnative/multiselect/master/LICENSE)
+[![Release](https://img.shields.io/github/release/distantnative/multiselect.svg)](https://github.com/distantnative/multiselect/releases)  [![Issues](https://img.shields.io/github/issues/distantnative/multiselect.svg)](https://github.com/distantnative/multiselect/issues) 
 [![Moral License](https://img.shields.io/badge/buy-moral_license-8dae28.svg)](https://gumroad.com/l/kirby-multiselect)
 
 The Multiselect field plugin introduces a select field type for the panel that allows you to choose multiple entries.
 
-The plugin is free, but I'd appreciate if you'd support me with a [moral license](https://gumroad.com/l/kirby-multiselect)!
+The plugin is free, but I would appreciate it if you would support me with a [moral license](https://gumroad.com/l/kirby-multiselect)!
+
+
+## Requirements
+Since version 1.0.0 the multiselect field requires Kirby CMS 2.3 or higher.  
+If you are running an older version of Kirby, please use [version 1.4.0](https://github.com/distantnative/multiselect/releases/tag/v1.4) of the multiselect field.
 
 
 # Installation & Update
-Copy the files to `site/fields/multiselect/`.
+Copy the files to `site/plugins/field-multiselect/`.
 
 
 # Usage
@@ -36,9 +41,15 @@ bestband:
 
 Result:
 
-![multiselect](assets/images/multiselect.gif)  
+![multiselect](docs/assets/example.gif)  
 
-It can also be used with the usual field options (pages etc.) of the checkboxes field.
+It can also be used with the usual field options (pages etc.) of the [checkboxes field](https://getkirby.com/docs/cheatsheet/panel-fields/checkboxes).
 
-# Version history <a id="VersionHistory"></a>
-Check out the more or less complete [changelog](CHANGELOG.md).
+## Version history
+You can find a more or less complete version history in the [changelog](docs/CHANGELOG.md).
+
+## License
+[MIT License](http://www.opensource.org/licenses/mit-license.php)
+
+## Author
+Nico Hoffmann - <https://nhoffmann.com>

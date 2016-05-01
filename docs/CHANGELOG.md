@@ -1,9 +1,11 @@
 # Changelog
 
-## 2.0.0
+## 2.0.0 (2016-05-01)
 - Requires Kirby 2.3.0
 - Renamed to `field-multiselect` (required renaming repository)
 - Rewritten as plugin that registers the multiselect field
+- Restructured CSS as SCSS (using gulp)
+- Updated package.json (supports the Kirby CLI)
 
 ## 1.4.0
 - Fixed saving cleared multiselect field
