@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.1.0](https://github.com/distantnative/field-multiselect/releases/tag/2.1.0) (2017-01-22)
+- Docs: added use case for related articles
+- Fixed: remove false comma in package.json
+
 ## 2.0.0 (2016-05-01)
 - Requires Kirby 2.3.0
 - Renamed to `field-multiselect` (required renaming repository)
