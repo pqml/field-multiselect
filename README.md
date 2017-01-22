@@ -13,11 +13,11 @@ Since version 1.0.0 the multiselect field requires Kirby CMS 2.3 or higher.
 If you are running an older version of Kirby, please use [version 1.4.0](https://github.com/distantnative/multiselect/releases/tag/v1.4) of the multiselect field.
 
 
-# Installation & Update
+## Installation & Update
 Copy the files to `site/plugins/field-multiselect/`.
 
 
-# Usage
+## Usage
 
 Use it in your blueprint:
 
@@ -44,6 +44,30 @@ Result:
 ![multiselect](https://nhoffmann.com/remote/github/field-multiselect/example.gif)  
 
 It can also be used with the usual field options (pages etc.) of the [checkboxes field](https://getkirby.com/docs/cheatsheet/panel-fields/checkboxes).
+
+## Use Case: Related Pages
+
+A great use for the multiselect field are related pages/articles. Just set up e.g. your glog article blueprint as follows:
+
+```
+related:
+  label: Related Articles
+  type: multiselect
+  search: true
+  options: query
+  query:
+    fetch: siblings
+    value: '{{id}}'
+```
+
+And then use them in your template:
+
+```php
+<?php foreach($page->related()->pages(',') as $related): ?>
+  …
+<?php endforeach ?>
+```
+
 
 ## Version history
 You can find a more or less complete version history in the [changelog](CHANGELOG.md).
