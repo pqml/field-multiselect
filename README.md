@@ -1,4 +1,4 @@
-![Multiselect Field for Kirby CMS](docs/assets/logo.png)  
+![Multiselect Field for Kirby CMS](https://nhoffmann.com/remote/github/field-multiselect/logo.png)  
 
 [![Release](https://img.shields.io/github/release/distantnative/multiselect.svg)](https://github.com/distantnative/multiselect/releases)  [![Issues](https://img.shields.io/github/issues/distantnative/multiselect.svg)](https://github.com/distantnative/multiselect/issues) 
 [![Moral License](https://img.shields.io/badge/buy-moral_license-8dae28.svg)](https://gumroad.com/l/kirby-multiselect)
@@ -41,12 +41,12 @@ bestband:
 
 Result:
 
-![multiselect](docs/assets/example.gif)  
+![multiselect](https://nhoffmann.com/remote/github/field-multiselect/example.gif)  
 
 It can also be used with the usual field options (pages etc.) of the [checkboxes field](https://getkirby.com/docs/cheatsheet/panel-fields/checkboxes).
 
 ## Version history
-You can find a more or less complete version history in the [changelog](docs/CHANGELOG.md).
+You can find a more or less complete version history in the [changelog](CHANGELOG.md).
 
 ## License
 [MIT License](http://www.opensource.org/licenses/mit-license.php)
