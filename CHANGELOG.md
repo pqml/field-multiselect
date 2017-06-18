@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.1.1](https://github.com/distantnative/field-multiselect/releases/tag/2.1.1) (2017-06-18)
+:bug: Fixed [#23](https://github.com/distantnative/field-multiselect/issues/23)  
+
 ## [2.1.0](https://github.com/distantnative/field-multiselect/releases/tag/2.1.0) (2017-01-22)
 - Docs: added use case for related articles
 - Fixed: remove false comma in package.json
