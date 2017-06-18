@@ -175,7 +175,12 @@
 
     this.toggleDropdown = function() {
       self.resetSearch();
-      self.list.toggle();
+      if ($(self.list).is(":visible")) {
+        self.list.hide();
+      } else {
+        self.list.show();
+      }
+      console.log(self.list);
       self.display.toggleClass('input-is-focused');
 
       if(self.display.hasClass('input-is-focused')) {
