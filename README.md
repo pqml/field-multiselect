@@ -47,7 +47,7 @@ It can also be used with the usual field options (pages etc.) of the [checkboxes
 
 ## Use Case: Related Pages
 
-A great use for the multiselect field are related pages/articles. Just set up e.g. your glog article blueprint as follows:
+A great use for the multiselect field are related pages/articles. Just set up e.g. your blog article blueprint as follows:
 
 ```
 related:
