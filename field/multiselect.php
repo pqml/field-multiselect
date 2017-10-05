@@ -101,4 +101,21 @@ class MultiselectField extends CheckboxesField {
     return $label;
   }
 
+  public function validate() {
+    if (!parent::validate()) return false;
+
+    $validators = $this->validate;
+    $count = is_array($this->value()) ? count($this->value()) : 0;
+
+    if (is_array($validators)) {
+      if (isset($validators['maxItems']) && $count > $validators['maxItems']) {
+        return false;
+      }
+      if (isset($validators['minItems']) && $count < $validators['minItems']) {
+        return false;
+      }
+    }
+
+    return true;
+  }
 }

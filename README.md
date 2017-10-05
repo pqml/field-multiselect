@@ -45,6 +45,24 @@ Result:
 
 It can also be used with the usual field options (pages etc.) of the [checkboxes field](https://getkirby.com/docs/cheatsheet/panel-fields/checkboxes).
 
+#### Limit how many options can be selected
+You can use the special `maxItems` and `minItems` validators to add a minimum and/or a maximum number of selected options.
+
+###### Example
+```
+related:
+  label: Related Articles
+  type: multiselect
+  search: true
+  options: query
+  query:
+    fetch: siblings
+    value: '{{id}}'
+  validate:
+    minItems: 1
+    maxItems: 10
+```
+
 ## Use Case: Related Pages
 
 A great use for the multiselect field are related pages/articles. Just set up e.g. your blog article blueprint as follows:
