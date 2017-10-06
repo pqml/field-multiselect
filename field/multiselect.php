@@ -97,6 +97,7 @@ class MultiselectField extends CheckboxesField {
 
   public function label() {
     $label = parent::label();
+    if (!$label) return null;
     $label->attr('for', '');
     return $label;
   }
